@@ -1,9 +1,35 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+Quote.destroy_all
+
+quotes = [
+  { author: "Nelson Mandela", content: "A educação é a arma mais poderosa que você pode usar para mudar o mundo." },
+  { author: "Arthur Schopenhauer", content: "O maior erro que um homem pode cometer é sacrificar a sua saúde a qualquer outra vantagem." },
+  { author: "Jean-Paul Sartre", content: "A violência, seja qual for a maneira como ela se manifesta, é sempre uma derrota." },
+  { author: "Carlos Drummond de Andrade", content: "A natureza não faz milagres, faz revelações." },
+  { author: "Mahatma Gandhi", content: "Faz da tua vida um reflexo da sociedade que desejas." },
+  { author: "Aldous Huxley", content: "A publicidade é uma das formas mais interessantes e difíceis da literatura moderna." },
+  { author: "Pablo Picasso", content: "A arte é a mentira que nos permite conhecer a verdade." },
+  { author: "John Piper", content: "A marca da cultura de consumo é a redução do 'ser' para 'ter'." },
+  { author: "Friedrich Nietzsche", content: "É necessário ter o caos dentro de si para gerar uma estrela." },
+  { author: "Mahatma Gandhi", content: "Não existe um caminho para a felicidade. A felicidade é o caminho." },
+  { author: "Sérgio Vaz", content: "Revolucionário é todo aquele que quer mudar o mundo e tem a coragem de começar por si mesmo." },
+  { author: "Michael Jordan", content: "Você erra todos os arremessos que não tenta." },
+  { author: "René Descartes", content: "Não existem métodos fáceis para resolver problemas difíceis." },
+  { author: "Augusto Cury", content: "Frágeis usam a violência, e os fortes as ideias." },
+  { author: "Dalai Lama", content: "Dê a quem você ama: asas para voar, raízes para voltar e motivos para ficar." },
+  { author: "C.S. Lewis", content: "O carinho é responsável por nove-décimos de qualquer felicidade sólida e durável existente em nossas vidas." },
+  { author: "Pablo Neruda", content: "Você é livre para fazer as suas escolhas, mas é prisioneiro das consequências." },
+  { author: "Georges Bernanos", content: "Saber encontrar a alegria na alegria dos outros, é o segredo da felicidade." },
+  { author: "Cristopher Morley", content: "Só existe um êxito: a capacidade de levar a vida que se quer." },
+  { author: "Theodore Roosevelt", content: "Acredite que você pode, assim você já está no meio do caminho." },
+  { author: "Mario Quintana", content: "A amizade é um amor que nunca morre." },
+  { author: "Paulo Leminski", content: "Repara bem no que não digo." },
+  { author: "Bob Marley", content: "Todos caem, mas apenas os fracos continuam no chão." },
+  { author: "Oscar Wilde", content: "Viver é a coisa mais rara do mundo. A maioria das pessoas apenas existe." },
+  { author: "Oscar Wilde", content: "Seja você mesmo. Todas as outras personalidades já têm dono." }
+]
+
+quotes.each do |quote|
+  Quote.create!(author: quote[:author], content: quote[:content])
+end
+
+puts "Created #{Quote.count} quotes"

@@ -1,0 +1,17 @@
+<main class="container">
+  <h1 class="pico-color-slate-500">Nova Frase</h1>
+  <hr>
+  <%= form_with model: @quote do |form| %>
+    <%= form.label :content, "Conteúdo" %>
+    <%= form.text_area :content, rows: 3, "aria-invalid": @quote.errors[:content].any?, "aria-describedby": "content-error" %>
+    <% if @quote.errors[:content].any? %>
+      <small id="content-error"><%= @quote.errors.full_messages_for(:content).join(", ") %></small>
+    <% end %>
+    <%= form.label :author, "Autor" %>
+    <%= form.text_field :author, "aria-invalid": @quote.errors[:author].any?, "aria-describedby": "author-error" %>
+    <% if @quote.errors[:author].any? %>
+      <small id="author-error"><%= @quote.errors.full_messages_for(:author).join(", ") %></small>
+    <% end %>
+    <%= form.submit "Adicionar" %>
+  <% end %>
+</main>

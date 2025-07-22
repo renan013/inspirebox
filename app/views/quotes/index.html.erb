@@ -1,0 +1,15 @@
+<main class="container">
+  <h1>Coleção de Frases</h1>
+  <%= link_to "Nova", new_quote_path, role: "button" %>
+  <hr>
+  <% @quotes.each do |quote| %>
+    <article class="grid">
+      <blockquote>
+        <%= quote.content %>
+        <footer>
+          <cite>— <%= quote.author %></cite>
+        </footer>
+      </blockquote>
+    </article>
+  <% end %>
+</main>

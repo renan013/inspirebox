@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      quote: "Frase"
+    attributes:
+      quote:
+        author: "Autor"
+        content: "Conteúdo"
+  errors:
+    messages:
+      blank: "não pode ficar em branco"
+      invalid: "é inválido"
+      taken: "já está em uso"
