@@ -5,7 +5,11 @@ Rails.application.configure do
 
   # open for github codespaces
   config.hosts << /.*\.github\.dev/
-
+  config.hosts << /.*\.localhost:\d+/
+  if ENV["GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN"] == "app.github.dev"
+    warn "WARNING: (development) Disabling CSRF protection Origin header check for Github Codespace"
+    config.action_controller.forgery_protection_origin_check = false
+  end
   # Make code changes take effect immediately without server restart.
   config.enable_reloading = true
 
